@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>백운도인 명서 — 잃어버린 명리의 기록</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#080808;
+  --bg2:#0d0c0b;
+  --ink:#eee8dd;
+  --muted:#989187;
+  --faint:#4f4a43;
+  --line:#2a2723;
+  --red:#8b2d28;
+  --paper:#cdbb95;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 500px at 50% -120px, rgba(115,88,47,.12), transparent 70%),
+    linear-gradient(180deg,#070707 0%,#0a0908 45%,#070707 100%);
+  color:var(--ink);
+  font-family:"Noto Serif KR","Apple SD Gothic Neo",serif;
+  -webkit-font-smoothing:antialiased;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:30;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+a{color:inherit}
+main{overflow:hidden}
+.section{
+  position:relative;
+  width:min(100%,760px);
+  margin:0 auto;
+  padding-left:24px;
+  padding-right:24px;
+}
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding-top:90px;padding-bottom:70px;
+}
+.eyebrow{
+  font-size:11px;letter-spacing:.32em;color:#777067;
+  margin-bottom:24px;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(40px,12vw,74px);
+  line-height:1.15;
+  letter-spacing:-.045em;
+  font-weight:600;
+}
+.hanja{
+  display:block;
+  margin-top:12px;
+  font-size:11px;
+  letter-spacing:.28em;
+  color:#746d64;
+  font-weight:400;
+}
+.hero .opening{
+  margin-top:52px;
+  max-width:520px;
+  color:#b9b2a9;
+  font-size:16px;
+  line-height:2.1;
+  word-break:keep-all;
+}
+.scrollcue{
+  position:absolute;bottom:28px;left:24px;
+  display:flex;align-items:center;gap:10px;
+  color:#5f5a54;font-size:10px;letter-spacing:.17em;
+}
+.scrollcue i{display:block;width:36px;height:1px;background:#5c5650;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{width:58px;opacity:.35}}
+
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+.reveal.show{opacity:1;transform:none}
+
+.story{
+  min-height:85svh;
+  display:flex;align-items:center;
+  padding-top:120px;padding-bottom:120px;
+}
+.story p{
+  margin:0;
+  font-size:clamp(23px,6vw,34px);
+  line-height:1.85;
+  letter-spacing:-.025em;
+  word-break:keep-all;
+}
+.story p small{
+  display:block;
+  font-size:12px;
+  color:#6e6860;
+  line-height:1.8;
+  margin-bottom:24px;
+  letter-spacing:.1em;
+}
+.dim{color:#77716a}
+.light{color:#f2eee6}
+
+.record-wrap{
+  position:relative;
+  padding:120px 0;
+  border-top:1px solid #171614;
+  border-bottom:1px solid #171614;
+}
+.record-bg{
+  position:absolute;inset:38px 0 auto 0;
+  text-align:center;
+  color:#171512;
+  font-size:clamp(100px,33vw,240px);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  font-family:serif;
+}
+.record{
+  position:relative;
+  width:min(calc(100% - 48px),640px);
+  margin:auto;
+  padding:42px 28px 36px;
+  border:1px solid #25211c;
+  background:
+    linear-gradient(180deg,rgba(35,29,22,.34),rgba(14,13,11,.28)),
+    rgba(10,10,9,.78);
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+.record:before,.record:after{
+  content:"";position:absolute;width:32px;height:32px;border-color:#4a3d2f;
+}
+.record:before{left:-1px;top:-1px;border-left:1px solid;border-top:1px solid}
+.record:after{right:-1px;bottom:-1px;border-right:1px solid;border-bottom:1px solid}
+.seal{
+  width:48px;height:48px;border:1px solid var(--red);
+  color:#a33a33;display:grid;place-items:center;
+  font-size:12px;line-height:1.15;text-align:center;
+  transform:rotate(-4deg);margin-bottom:36px;
+}
+.record h2{
+  margin:0 0 28px;
+  font-size:26px;font-weight:500;line-height:1.55;
+}
+.record p{
+  color:#aaa299;
+  font-size:15px;line-height:2.05;
+  margin:0 0 22px;word-break:keep-all;
+}
+.record .source{
+  margin-top:36px;padding-top:18px;border-top:1px solid #2b2722;
+  font-size:10px;color:#625d56;letter-spacing:.12em;
+}
+
+.sticky-zone{height:190svh;position:relative}
+.sticky{
+  position:sticky;top:0;height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:24px;
+}
+.sticky blockquote{
+  margin:0;
+  font-size:clamp(26px,7vw,42px);
+  line-height:1.7;
+  letter-spacing:-.035em;
+  font-weight:500;
+}
+.sticky blockquote span{display:block}
+.sticky .red{color:#b13a33}
+.sticky .under{
+  display:block;margin-top:28px;font-size:10px;letter-spacing:.22em;color:#645e57;
+}
+
+.method{padding-top:130px;padding-bottom:150px}
+.method .head{margin-bottom:70px}
+.method h2{font-size:34px;line-height:1.45;margin:0 0 16px}
+.method .sub{color:#746e67;line-height:1.9;font-size:14px;word-break:keep-all}
+.steps{border-top:1px solid var(--line)}
+.step{
+  display:grid;grid-template-columns:48px 1fr;
+  gap:18px;padding:28px 0;border-bottom:1px solid var(--line);
+}
+.step .n{font-size:10px;color:#5c5750;padding-top:5px;letter-spacing:.15em}
+.step h3{margin:0 0 10px;font-size:19px;font-weight:500}
+.step p{margin:0;color:#8c857d;line-height:1.9;font-size:13px;word-break:keep-all}
+
+.cta-zone{
+  min-height:100svh;
+  display:flex;align-items:center;
+  padding-top:110px;padding-bottom:110px;
+}
+.cta-box{width:100%}
+.cta-box .pre{font-size:11px;color:#716a62;letter-spacing:.16em;margin-bottom:24px}
+.cta-box h2{
+  margin:0 0 22px;
+  font-size:clamp(32px,9vw,52px);
+  line-height:1.35;letter-spacing:-.035em;
+}
+.cta-box p{color:#989087;line-height:2;word-break:keep-all;max-width:530px}
+.primary{
+  margin-top:44px;
+  width:100%;height:58px;
+  border:1px solid #6d2522;background:#7e2823;color:#f0e7db;
+  font-family:inherit;font-size:14px;letter-spacing:.1em;
+  box-shadow:0 12px 40px rgba(99,24,20,.16);
+}
+.primary:active{transform:translateY(1px)}
+
+.form-stage{
+  display:none;
+  padding-top:100px;padding-bottom:130px;
+}
+.form-stage.open{display:block}
+.form-head{margin-bottom:54px}
+.form-head .mini{font-size:10px;letter-spacing:.2em;color:#69635c}
+.form-head h2{font-size:31px;margin:14px 0 14px;line-height:1.5}
+.form-head p{color:#888178;line-height:1.9;font-size:13px}
+
+.field{margin:0 0 34px}
+.field label{display:block;color:#827b72;font-size:11px;margin-bottom:12px;letter-spacing:.08em}
+.field label small{font-size:9px;color:#504b45;margin-left:7px}
+input{
+  width:100%;border:0;border-bottom:1px solid #3b3732;
+  padding:10px 0 14px;background:transparent;color:#eee7dd;
+  font-family:inherit;font-size:20px;outline:none;border-radius:0;
+}
+input:focus{border-color:#6e6255}
+input::placeholder{color:#4d4842}
+.date-row{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
+
+.trace{display:none;margin-top:100px}
+.trace.open{display:block}
+.trace h3{font-size:27px;line-height:1.55;margin:0 0 14px}
+.trace .hint{color:#776f67;font-size:12px;line-height:1.8;margin-bottom:28px}
+.choice{
+  display:block;width:100%;text-align:left;
+  padding:20px 0;border:0;border-top:1px solid #2a2724;
+  background:transparent;color:#aaa29a;
+  font-family:inherit;font-size:14px;line-height:1.7;
+}
+.choice:last-of-type{border-bottom:1px solid #2a2724}
+.choice.sel{color:#eee8df}
+.choice.sel:before{content:"印";display:inline-grid;place-items:center;width:27px;height:27px;margin-right:12px;border:1px solid #7c2925;color:#a53630;font-size:10px;vertical-align:middle;transform:rotate(-4deg)}
+
+.loading{display:none;min-height:90svh;align-items:center;justify-content:center;text-align:center}
+.loading.open{display:flex}
+.loading .mark{
+  width:64px;height:64px;border:1px solid #722722;color:#98322d;
+  display:grid;place-items:center;margin:0 auto 28px;line-height:1.2;
+  animation:breath 2s ease-in-out infinite;
+}
+@keyframes breath{50%{opacity:.35;transform:scale(.96)}}
+.loading p{font-size:12px;color:#6f6962;letter-spacing:.12em}
+
+.result{display:none;padding-top:120px;padding-bottom:130px}
+.result.open{display:block}
+.result .topline{font-size:10px;color:#635d56;letter-spacing:.2em;margin-bottom:24px}
+.result h2{font-size:30px;line-height:1.55;margin:0 0 42px}
+.verdict{
+  padding:32px 0;border-top:1px solid #2c2824;border-bottom:1px solid #2c2824;
+  font-size:clamp(22px,6vw,32px);line-height:1.8;
+}
+.result p{color:#9e968d;line-height:2;font-size:14px;word-break:keep-all}
+.commentary{
+  margin-top:42px;padding:28px 24px;
+  border:1px solid #342c25;background:rgba(31,25,20,.3);
+}
+.commentary .title{font-size:11px;color:#a33530;letter-spacing:.16em;margin-bottom:16px}
+.locked{margin-top:60px;border-top:1px solid #292622}
+.lock{
+  padding:23px 0;border-bottom:1px solid #292622;
+  display:flex;justify-content:space-between;gap:20px;align-items:center;
+}
+.lock b{font-size:15px;font-weight:500}
+.lock span{font-size:10px;color:#59544e;letter-spacing:.12em}
+.disclaimer{
+  margin-top:70px;color:#4f4a44;font-size:9px;line-height:1.8;text-align:center;
+}
+
+@media (min-width:700px){
+  .section{padding-left:40px;padding-right:40px}
+  .scrollcue{left:40px}
+  .record{padding:54px 46px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .scrollcue i,.loading .mark{animation:none}
+}
+</style>
+</head>
+<body>
+<main>
+
+<section class="section hero">
+  <div class="eyebrow reveal">잃어버린 명리의 기록</div>
+  <h1 class="reveal">백운도인<br>명서<span class="han">白雲道人 命書</span></h1>
+  <p class="opening reveal">
+    오래된 명리서의 끝에는,<br>
+    이상하게도 늘 같은 한 장이 비어 있었다.
+  </p>
+  <div class="scrollcue"><i></i> 아래로 기록을 읽으십시오</div>
+</section>
+
+<section class="section story">
+  <p class="reveal">
+    <small>傳 · 전해지는 이야기</small>
+    우리가 알고 있는 사주팔자는<br>
+    수많은 사람의 손을 거치며<br>
+    하나의 학문이 되었다.<br><br>
+    <span class="dim">그러나 그 시작에는,<br>한 사람의 이름이 있었다고 전해진다.</span>
+  </p>
+</section>
+
+<section class="record-wrap">
+  <div class="record-bg">白</div>
+  <article class="record reveal">
+    <div class="seal">白雲<br>道人</div>
+    <h2>그의 이름은<br><span class="light">백운도인.</span></h2>
+    <p>
+      제자들이 남긴 기록에 따르면, 그는 사람의 태어난 때와 지나온 삶을 함께 놓고 운명의 흐름을 읽었다.
+    </p>
+    <p>
+      훗날 제자들은 그의 풀이를 정리하고 나누었다. 그 기록은 여러 갈래로 전해졌고, 오늘날의 명리학으로 이어졌다는 이야기가 남았다.
+    </p>
+    <p>
+      하지만 정작 스승이 마지막에 사용했다는 판독법은 온전히 기록되지 않았다.
+    </p>
+    <div class="source">白雲道人 命書 · 殘本 第一章</div>
+  </article>
+</section>
+
+<section class="section story">
+  <p class="reveal">
+    <small>백운도인의 방식</small>
+    이상한 점은 하나였다.<br><br>
+    그는 찾아온 사람에게<br>
+    <span class="light">미래를 먼저 말하지 않았다.</span>
+  </p>
+</section>
+
+<section class="sticky-zone">
+  <div class="sticky">
+    <blockquote class="reveal">
+      <span>“미래는</span>
+      <span>거짓말을 할 수 있다.</span>
+      <br>
+      <span>그러나 <span class="red">지나간 일</span>은</span>
+      <span>거짓말을 하지 않는다.”</span>
+      <small class="under">白雲註 · 백운도인의 주석</small>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section story">
+  <p class="reveal">
+    먼저 지나간 일을 맞춰 보고,<br>
+    그 흔적이 태어난 때와 맞물릴 때에만<br>
+    다음 장을 열었다.<br><br>
+    <span class="dim">그에게 과거는 설명이 아니라,<br>운명을 읽기 위한 증거였다.</span>
+  </p>
+</section>
+
+<section class="section method">
+  <div class="head reveal">
+    <div class="eyebrow">逆證 · 역증</div>
+    <h2>명서는 세 번<br>당신의 기록을 대조합니다.</h2>
+    <p class="sub">지금부터의 과정은 미래를 먼저 단정하지 않습니다. 이름과 태어난 때, 그리고 지나온 흔적을 차례로 겹쳐 봅니다.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="n">一</div><div><h3>이름의 흔적</h3><p>이름에 남은 뜻과 소리의 방향을 기록합니다.</p></div></div>
+    <div class="step reveal"><div class="n">二</div><div><h3>태어난 때</h3><p>생년월일과 시간을 기준으로 삶의 큰 흐름을 놓습니다.</p></div></div>
+    <div class="step reveal"><div class="n">三</div><div><h3>지나온 일의 대조</h3><p>이미 일어난 흔적 하나를 골라 원전의 흐름과 맞춰 봅니다.</p></div></div>
+  </div>
+</section>
+
+<section class="section cta-zone" id="start">
+  <div class="cta-box reveal">
+    <div class="pre">이제 당신의 차례입니다.</div>
+    <h2>당신의 기록을<br>명서에 남기십시오.</h2>
+    <p>백운도인이 했다고 전해지는 순서 그대로, 지나간 흔적부터 대조합니다.</p>
+    <button class="primary" onclick="openForm()">명서를 펼친다</button>
+  </div>
+</section>
+
+<section class="section form-stage" id="formStage">
+  <div class="form-head">
+    <div class="mini">第一記 · 첫 번째 기록</div>
+    <h2>당신의 이름을 적으십시오.<span class="han">姓名 · 성명</span></h2>
+    <p>한자는 선택입니다. 모른다면 한글 이름만 적어도 됩니다.</p>
+  </div>
+  <div class="field">
+    <label>이름</label>
+    <input id="nameKr" autocomplete="name" placeholder="예 · 김성용">
+  </div>
+  <div class="field">
+    <label>이름 한자 <small>선택</small></label>
+    <input id="nameHanja" placeholder="예 · 金成龍">
+  </div>
+
+  <div class="form-head" style="margin-top:82px">
+    <div class="mini">第二記 · 두 번째 기록</div>
+    <h2>태어난 때를 적으십시오.<span class="han">生辰 · 생진</span></h2>
+  </div>
+  <div class="date-row">
+    <div class="field"><label>생년월일</label><input id="birth" type="date"></div>
+    <div class="field"><label>태어난 시각 <small>선택</small></label><input id="birthTime" type="time"></div>
+  </div>
+
+  <button class="primary" onclick="openTrace()">지나간 흔적과 대조한다</button>
+
+  <div class="trace" id="trace">
+    <div class="mini">第三記 · 마지막 대조</div>
+    <h3>지나온 삶에서<br>가장 가까운 흔적 하나.</h3>
+    <p class="hint">완전히 같을 필요는 없습니다. 가장 닮은 흐름을 고르십시오.</p>
+    <button class="choice" onclick="pick(this)">사람은 많이 스쳤지만, 오래 남은 관계는 생각보다 적었다.</button>
+    <button class="choice" onclick="pick(this)">돈이나 일의 흐름이 일정하기보다, 들어오고 빠지는 시기가 분명했다.</button>
+    <button class="choice" onclick="pick(this)">내 선택만큼이나 주변 사람의 결정이 삶의 방향을 크게 바꾼 적이 있다.</button>
+    <button class="choice" onclick="pick(this)">예상하지 못한 시기에 환경이나 일이 크게 바뀌며 새로운 길이 열린 적이 있다.</button>
+    <button class="primary" onclick="read()">명서와 대조한다</button>
+  </div>
+</section>
+
+<section class="section loading" id="loading">
+  <div>
+    <div class="mark">白雲<br>命書</div>
+    <p>지나온 기록을 대조하고 있습니다</p>
+  </div>
+</section>
+
+<section class="section result" id="result">
+  <div class="topline">第一判讀 · 첫 번째 판독</div>
+  <h2><span id="resultName">당신</span>의 기록에서<br>먼저 드러난 흐름.</h2>
+  <div class="verdict">
+    운이 없는 사람이 아니라,<br>
+    <span class="light">운이 들어오는 문이 남들과 다른 사람.</span>
+  </div>
+  <p style="margin-top:34px">
+    이런 흐름은 기회가 없는 것이 아니라, 사람과 환경이 먼저 움직인 뒤 자신의 자리가 뒤늦게 선명해지는 형태로 나타난다.
+  </p>
+  <p>
+    그래서 남들이 이미 자리를 잡은 것처럼 보일 때 조급해지기 쉽다. 그러나 당신에게 중요한 것은 빠른 시작보다, 흐름이 바뀌는 순간을 놓치지 않는 일이다.
+  </p>
+  <div class="commentary">
+    <div class="title">白雲註 · 백운도인의 주석</div>
+    <p style="margin:0;color:#c5bdb3">
+      “급하게 문을 열려 하지 말 것.<br>
+      문이 열리는 때에는 안쪽에서 먼저 소리가 난다.”
+    </p>
+  </div>
+
+  <div class="locked">
+    <div class="lock"><b>이름의 흔적 <small class="han">名痕</small></b><span>봉인됨</span></div>
+    <div class="lock"><b>운의 전환점 <small class="han">命轉</small></b><span>봉인됨</span></div>
+    <div class="lock"><b>마지막 판정 <small class="han">終判</small></b><span>봉인됨</span></div>
+  </div>
+
+  <div class="disclaimer">
+    백운도인과 관련 기록은 본 서비스의 창작 세계관입니다.<br>
+    본 콘텐츠는 오락을 목적으로 합니다.
+  </div>
+</section>
+
+</main>
+
+<script>
+const reveals=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.18});
+reveals.forEach(x=>io.observe(x));
+
+function openForm(){
+  const f=document.getElementById('formStage');
+  f.classList.add('open');
+  setTimeout(()=>f.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
+function openTrace(){
+  const n=document.getElementById('nameKr').value.trim();
+  const b=document.getElementById('birth').value;
+  if(!n){alert('이름을 먼저 적어주십시오.');return}
+  if(!b){alert('생년월일을 적어주십시오.');return}
+  const t=document.getElementById('trace');
+  t.classList.add('open');
+  setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
+function pick(el){
+  document.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));
+  el.classList.add('sel');
+}
+function read(){
+  const selected=document.querySelector('.choice.sel');
+  if(!selected){alert('가장 가까운 흔적 하나를 골라주십시오.');return}
+  document.getElementById('formStage').style.display='none';
+  document.getElementById('loading').classList.add('open');
+  document.getElementById('loading').scrollIntoView({behavior:'smooth',block:'center'});
+  const n=document.getElementById('nameKr').value.trim()||'당신';
+  setTimeout(()=>{
+    document.getElementById('loading').classList.remove('open');
+    document.getElementById('resultName').textContent=n;
+    const r=document.getElementById('result');
+    r.classList.add('open');
+    r.scrollIntoView({behavior:'smooth',block:'start'});
+  },1700);
+}
+</script>
+</body>
+</html>
